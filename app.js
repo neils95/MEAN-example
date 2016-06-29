@@ -4,6 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
+//set up database
+require('./models/Posts');
+require('./models/Comments');
+mongoose.connect('mongodb://neilsanghrajka:mongodb@jello.modulusmongo.net:27017/xuVoz2on');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
