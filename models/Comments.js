@@ -7,4 +7,9 @@ var CommentsSchema=new mongoose.Schema({
     post:{type:mongoose.Schema.Types.ObjectId,ref:'Post'}
 });
 
+CommentsSchema.methods.upvote = function(cb) {
+    this.upvotes += 1;
+    this.save(cb);
+};
+
 mongoose.model('Comment',CommentsSchema);
